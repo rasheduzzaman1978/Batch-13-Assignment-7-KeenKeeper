@@ -2,14 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import logoImg from '../../assets/logo.png'
 import Image from 'next/image';
+import logoImg from '../../assets/logo.png';
 
 export default function Navbar() {
   const pathname = usePathname();
+
   const navItems = [
     {
       name: 'Home',
+      path: '/',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +19,7 @@ export default function Navbar() {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-4 h-4"
+          className="h-4 w-4"
         >
           <path
             strokeLinecap="round"
@@ -26,10 +28,10 @@ export default function Navbar() {
           />
         </svg>
       ),
-      active: false,
     },
     {
       name: 'Timeline',
+      path: '/timeline',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +39,7 @@ export default function Navbar() {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-4 h-4"
+          className="h-4 w-4"
         >
           <path
             strokeLinecap="round"
@@ -46,10 +48,10 @@ export default function Navbar() {
           />
         </svg>
       ),
-      active: false,
     },
     {
       name: 'Stats',
+      path: '/stats',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +59,7 @@ export default function Navbar() {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-4 h-4"
+          className="h-4 w-4"
         >
           <path
             strokeLinecap="round"
@@ -66,14 +68,13 @@ export default function Navbar() {
           />
         </svg>
       ),
-      active: false,
     },
   ];
 
   return (
     <header className="w-full border-b border-gray-200 bg-[#f7f7f7] px-8 py-3">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <div className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src={logoImg}
             alt="KeenKeeper Logo"
@@ -82,30 +83,32 @@ export default function Navbar() {
             className="h-auto w-auto object-contain"
             priority
           />
-        </div>
+        </Link>
 
         <nav>
           <ul className="flex items-center gap-3 text-sm font-medium">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={
-                    item.name === 'Home'
-                      ? '/'
-                      : `/${item.name.toLowerCase()}`
-                  }
-                  className={`flex items-center gap-2 rounded-md px-4 py-2 transition-all duration-200 ${
-                    (item.name === 'Home' && pathname === '/') ||
-                    pathname === `/${item.name.toLowerCase()}`
-                      ? 'bg-[#244D3F] text-white shadow-sm'
-                      : 'text-[#5c6770] hover:bg-gray-100 hover:text-[#1f2a2e]'
-                  }`}
-                >
-                  {item.icon}
-                  <span>{item.name}</span>
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isActive =
+                item.path === '/'
+                  ? pathname === '/'
+                  : pathname.startsWith(item.path);
+
+              return (
+                <li key={item.name}>
+                  <Link
+                    href={item.path}
+                    className={`flex items-center gap-2 rounded-md px-4 py-2 transition-all duration-200 ${
+                      isActive
+                        ? 'bg-[#244D3F] text-white shadow-sm'
+                        : 'text-[#5c6770] hover:bg-gray-100 hover:text-[#1f2a2e]'
+                    }`}
+                  >
+                    {item.icon}
+                    <span>{item.name}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
