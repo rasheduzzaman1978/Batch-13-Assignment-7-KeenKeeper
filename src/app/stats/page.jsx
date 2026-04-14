@@ -5,7 +5,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  ResponsiveContainer,
   Tooltip,
   Legend,
 } from 'recharts';
@@ -42,45 +41,43 @@ export default function StatsPage() {
     <main className="min-h-screen bg-[#f5f7f8] px-4 py-10 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         {/* Page Heading */}
-        <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937]">
+        <h1 className="mb-8 text-3xl font-bold text-[#1F2937] md:text-4xl lg:text-5xl">
           Friendship Analytics
         </h1>
 
         {/* Chart Card */}
         <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-6 text-base md:text-[18px] lg:text-xl font-medium text-[#244D3F]">
+          <h2 className="mb-6 text-base font-medium text-[#244D3F] md:text-[18px] lg:text-xl">
             By Interaction Type
           </h2>
 
-          <div className="h-80 w-full min-w-0 min-h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={chartData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={70}
-                  outerRadius={100}
-                  paddingAngle={4}
-                  dataKey="value"
-                >
-                  {chartData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
+          <div className="flex justify-center overflow-x-auto">
+            <PieChart width={400} height={320}>
+              <Pie
+                data={chartData}
+                cx="50%"
+                cy="50%"
+                innerRadius={70}
+                outerRadius={100}
+                paddingAngle={4}
+                dataKey="value"
+              >
+                {chartData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
 
-                <Tooltip />
+              <Tooltip />
 
-                <Legend
-                  verticalAlign="bottom"
-                  height={36}
-                  iconType="circle"
-                />
-              </PieChart>
-            </ResponsiveContainer>
+              <Legend
+                verticalAlign="bottom"
+                height={36}
+                iconType="circle"
+              />
+            </PieChart>
           </div>
         </div>
       </div>

@@ -239,7 +239,7 @@ export default function FriendDetailsPage({ params }) {
               {/* Call Button */}
               <button
                 onClick={() => handleCheckIn('Call')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
+                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
               >
                 <Image
                   src={callImg}
@@ -254,7 +254,7 @@ export default function FriendDetailsPage({ params }) {
               {/* Text Button */}
               <button
                 onClick={() => handleCheckIn('Text')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
+                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
               >
                 <Image
                   src={textImg}
@@ -269,7 +269,7 @@ export default function FriendDetailsPage({ params }) {
               {/* Video Button */}
               <button
                 onClick={() => handleCheckIn('Video')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
+                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
               >
                 <Image
                   src={videoImg}

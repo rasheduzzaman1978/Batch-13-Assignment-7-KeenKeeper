@@ -35,14 +35,16 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image
-            src={logoImg}
-            alt="KeenKeeper Logo"
-            width={150}
-            height={40}
-            priority
-            className="w-auto h-8 md:h-10 object-contain"
-          />
+          <div className="relative h-8 w-[120px] md:h-10 md:w-[150px]">
+            <Image
+              src={logoImg}
+              alt="KeenKeeper Logo"
+              fill
+              priority
+              sizes="(max-width: 768px) 120px, 150px"
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
@@ -115,3 +117,4 @@ export default function Navbar() {
     </header>
   );
 }
+

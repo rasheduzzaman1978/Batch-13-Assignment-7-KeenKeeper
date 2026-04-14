@@ -58,8 +58,8 @@ export default function TimelinePage() {
 
   return (
     <main className="min-h-screen bg-[#f5f7f8] px-4 py-10 md:px-8 lg:px-12">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="mb-6 text-3xl font-bold text-[#1F2937]">
+      <div className="mx-auto max-w-6xl">
+        <h1 className="mb-6 text-2xl sm:text-3xl lg:text-5xl font-bold text-[#1F2937]">
           Timeline
         </h1>
 

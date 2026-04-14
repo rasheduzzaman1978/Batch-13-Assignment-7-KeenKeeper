@@ -18,7 +18,7 @@ export default function FriendsSection() {
 
   return (
     <section className="bg-[#f5f7f8] px-4 py-12 md:px-8 lg:px-12">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         <h2 className="mb-6 text-xl md:text-2xl font-semibold text-[#1F2937]">
           Your Friends
         </h2>
