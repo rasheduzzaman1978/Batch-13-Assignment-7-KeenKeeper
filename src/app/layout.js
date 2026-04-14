@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
 
     <main className="flex-1">{children}</main>
 
-    <ToastContainer position="top-right" autoClose={3000} />
+    <ToastContainer position="top-center" autoClose={1500} />
     <Footer />
   </AppProviders>
 </body>
