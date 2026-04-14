@@ -61,16 +61,20 @@ export default function FriendDetailsPage({ params }) {
 
   // Quick Check-In button click handle function
   const handleCheckIn = (type) => {
+    const now = new Date();
     // নতুন timeline entry object
     const newEntry = {
       id: Date.now(),
       type,
       title: `${type} with ${friend.name}`,
 
-      // Date + Time format
-      date: `${new Date()
-        .toLocaleDateString('en-GB')
-        .replace(/\//g, '-')} • ${new Date().toLocaleTimeString('en-US', {
+      date: `${now.toLocaleDateString('en-US', {
+        weekday: 'long',
+      })}, ${now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      })} • ${now.toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
         hour12: true,
@@ -155,17 +159,17 @@ export default function FriendDetailsPage({ params }) {
           </div>
 
           {/* Action Buttons */}
-          <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#1F2937] shadow-sm transition hover:bg-gray-50">
+          <button className="flex w-full items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#1F2937] shadow-sm transition hover:bg-gray-50">
             <FaClock />
             Snooze 2 Weeks
           </button>
 
-          <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#1F2937] shadow-sm transition hover:bg-gray-50">
+          <button className="flex w-full items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#1F2937] shadow-sm transition hover:bg-gray-50">
             <FaArchive />
             Archive
           </button>
 
-          <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-500 shadow-sm transition hover:bg-red-100">
+          <button className="flex w-full items-center justify-center gap-2 rounded-lg cursor-pointer border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-500 shadow-sm transition hover:bg-red-100">
             <FaTrash />
             Delete
           </button>
@@ -239,7 +243,7 @@ export default function FriendDetailsPage({ params }) {
               {/* Call Button */}
               <button
                 onClick={() => handleCheckIn('Call')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
+                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-200"
               >
                 <Image
                   src={callImg}
@@ -254,7 +258,7 @@ export default function FriendDetailsPage({ params }) {
               {/* Text Button */}
               <button
                 onClick={() => handleCheckIn('Text')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
+                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-200"
               >
                 <Image
                   src={textImg}
@@ -269,7 +273,7 @@ export default function FriendDetailsPage({ params }) {
               {/* Video Button */}
               <button
                 onClick={() => handleCheckIn('Video')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
+                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-200"
               >
                 <Image
                   src={videoImg}

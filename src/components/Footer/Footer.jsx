@@ -11,7 +11,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#244D3F] px-6 py-12 text-white md:px-12 lg:px-20">
+    <footer className="bg-[#244D3F] px-6 py-8 text-white md:px-12 lg:px-20">
       <div className="mx-auto max-w-7xl">
         {/* Top Content */}
         <div className="flex flex-col items-center text-center">
@@ -22,7 +22,7 @@ export default function Footer() {
               width={280}
               height={80}
               priority
-              className="h-auto w-50 md:w-80 lg:w-100 object-contain"
+              className="h-10 md:h-12 lg:h-15 w-50 md:w-80 lg:w-100 object-contain"
             />
           </Link>
 
@@ -31,7 +31,7 @@ export default function Footer() {
             nurture the relationships that matter most.
           </p>
 
-          <h3 className="mt-8 text-base md:text-xl font-medium tracking-wide text-gray-200">
+          <h3 className="mt-6 text-base md:text-xl font-medium tracking-wide text-gray-200">
             Social Links
           </h3>
 
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-10 border-t border-white/10"></div>
+        <div className="my-6 border-t border-white/10"></div>
 
         {/* Bottom Content */}
         <div className="flex flex-col items-center justify-between gap-4 text-center text-sm md:text-base text-gray-300 md:flex-row">

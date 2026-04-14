@@ -40,7 +40,6 @@ export default function Navbar() {
               src={logoImg}
               alt="KeenKeeper Logo"
               fill
-              priority
               sizes="(max-width: 768px) 120px, 150px"
               className="object-contain"
             />
