@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Sarah Ahmed",
-    "picture": "https://i.pravatar.cc/300?img=32",
-    "email": "sarah.ahmed@gmail.com",
+    "name": "Ridwan Sajid",
+    "picture": "https://i.ibb.co.com/gnvVCL4/IMG-20230419-131950.jpg",
+    "email": "rashedzaman1978@gmail.com",
     "days_since_contact": 18,
     "status": "overdue",
     "tags": ["college friend", "close friend"],
@@ -13,9 +13,9 @@
   },
   {
     "id": 2,
-    "name": "Michael Thompson",
-    "picture": "https://i.pravatar.cc/300?img=12",
-    "email": "michael.t@example.com",
+    "name": "Sifat Abdullah",
+    "picture": "https://i.ibb.co.com/Ps3McLC8/IMG-5178-Picsart-Ai-Image-Enhancer.jpg",
+    "email": "sifatabdullah1234@gmail.com",
     "days_since_contact": 6,
     "status": "on-track",
     "tags": ["work", "mentor"],
@@ -25,9 +25,9 @@
   },
   {
     "id": 3,
-    "name": "Nusrat Jahan",
-    "picture": "https://i.pravatar.cc/300?img=47",
-    "email": "nusrat.jahan@gmail.com",
+    "name": "Rasheduzzaman",
+    "picture": "https://i.ibb.co.com/G3n846KR/rashed.png",
+    "email": "rashedzaman1978@gmail.com",
     "days_since_contact": 11,
     "status": "almost due",
     "tags": ["school friend", "travel buddy"],
