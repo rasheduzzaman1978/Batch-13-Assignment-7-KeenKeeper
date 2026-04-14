@@ -24,7 +24,7 @@ export default function Banner() {
     <section className="bg-[#f5f7f8] px-4 py-16 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl text-center">
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F2937]">
+        <h1 className="text-[28px] sm:text-4xl md:text-[45px] lg:text-5xl font-bold text-[#1F2937]">
           Friends to keep close in your life
         </h1>
 

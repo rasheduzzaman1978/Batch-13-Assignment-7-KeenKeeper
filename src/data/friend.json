@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Ahmed",
+    "picture": "https://i.pravatar.cc/300?img=32",
+    "email": "sarah.ahmed@gmail.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["college friend", "close friend"],
+    "bio": "Met during university orientation. We still catch up about career goals and travel plans.",
+    "goal": 14,
+    "next_due_date": "2025-07-20"
+  },
+  {
+    "id": 2,
+    "name": "Michael Thompson",
+    "picture": "https://i.pravatar.cc/300?img=12",
+    "email": "michael.t@example.com",
+    "days_since_contact": 6,
+    "status": "on-track",
+    "tags": ["work", "mentor"],
+    "bio": "Former team lead who helped me grow professionally. We usually meet for coffee every month.",
+    "goal": 14,
+    "next_due_date": "2025-07-28"
+  },
+  {
+    "id": 3,
+    "name": "Nusrat Jahan",
+    "picture": "https://i.pravatar.cc/300?img=47",
+    "email": "nusrat.jahan@gmail.com",
+    "days_since_contact": 11,
+    "status": "almost due",
+    "tags": ["school friend", "travel buddy"],
+    "bio": "We have been friends since high school and love exploring new places together.",
+    "goal": 14,
+    "next_due_date": "2025-07-23"
+  },
+  {
+    "id": 4,
+    "name": "Daniel Rivera",
+    "picture": "https://i.pravatar.cc/300?img=15",
+    "email": "daniel.rivera@example.com",
+    "days_since_contact": 21,
+    "status": "overdue",
+    "tags": ["gym buddy", "neighbor"],
+    "bio": "Lives in the same apartment building. We often go jogging and talk about fitness goals.",
+    "goal": 14,
+    "next_due_date": "2025-07-17"
+  },
+  {
+    "id": 5,
+    "name": "Aisha Khan",
+    "picture": "https://i.pravatar.cc/300?img=25",
+    "email": "aisha.khan@gmail.com",
+    "days_since_contact": 4,
+    "status": "on-track",
+    "tags": ["cousin", "family"],
+    "bio": "One of my closest cousins. We usually talk about family events and cooking recipes.",
+    "goal": 10,
+    "next_due_date": "2025-07-30"
+  },
+  {
+    "id": 6,
+    "name": "Ryan Lee",
+    "picture": "https://i.pravatar.cc/300?img=18",
+    "email": "ryan.lee@example.com",
+    "days_since_contact": 13,
+    "status": "almost due",
+    "tags": ["gaming friend", "online friend"],
+    "bio": "Met through an online gaming community. We still play multiplayer games every weekend.",
+    "goal": 14,
+    "next_due_date": "2025-07-21"
+  },
+  {
+    "id": 7,
+    "name": "Emily Carter",
+    "picture": "https://i.pravatar.cc/300?img=41",
+    "email": "emily.carter@example.com",
+    "days_since_contact": 29,
+    "status": "overdue",
+    "tags": ["childhood friend", "best friend"],
+    "bio": "We grew up in the same neighborhood and have stayed close despite living in different cities.",
+    "goal": 14,
+    "next_due_date": "2025-07-12"
+  },
+  {
+    "id": 8,
+    "name": "Farhan Rahman",
+    "picture": "https://i.pravatar.cc/300?img=53",
+    "email": "farhan.rahman@gmail.com",
+    "days_since_contact": 8,
+    "status": "on-track",
+    "tags": ["university", "project partner"],
+    "bio": "Worked together on several university projects. We often discuss tech and startup ideas.",
+    "goal": 14,
+    "next_due_date": "2025-07-26"
+  },
+  {
+    "id": 9,
+    "name": "Sophia Wilson",
+    "picture": "https://i.pravatar.cc/300?img=9",
+    "email": "sophia.w@example.com",
+    "days_since_contact": 15,
+    "status": "almost due",
+    "tags": ["book club", "friend"],
+    "bio": "Met through a local book club. We enjoy discussing novels and attending literary events.",
+    "goal": 14,
+    "next_due_date": "2025-07-19"
+  },
+  {
+    "id": 10,
+    "name": "Hasibul Islam",
+    "picture": "https://i.pravatar.cc/300?img=60",
+    "email": "hasibul.islam@gmail.com",
+    "days_since_contact": 24,
+    "status": "overdue",
+    "tags": ["office friend", "football"],
+    "bio": "We work in the same office and play football together every Friday evening.",
+    "goal": 14,
+    "next_due_date": "2025-07-15"
+  }
+]
