@@ -41,12 +41,12 @@ export default function Navbar() {
             width={150}
             height={40}
             priority
-            className="h-auto w-auto object-contain"
+            className="h-8 w-30 md:h-10 md:w-35 object-contain"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden min-[900px]:block">
+        <nav className="hidden min-[768px]:block">
           <ul className="flex items-center gap-3 text-sm font-medium">
             {navItems.map((item) => {
               const isActive =
@@ -76,7 +76,7 @@ export default function Navbar() {
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center text-3xl text-[#244D3F] min-[900px]:hidden"
+          className="flex items-center justify-center text-3xl text-[#244D3F] min-[768px]:hidden"
         >
           {isOpen ? <HiX /> : <HiMenu />}
         </button>
@@ -84,7 +84,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="mt-4 border-t border-gray-200 pt-4 min-[900px]:hidden">
+        <div className="mt-4 border-t border-gray-200 pt-4 min-[768px]:hidden">
           <ul className="flex flex-col gap-2">
             {navItems.map((item) => {
               const isActive =
