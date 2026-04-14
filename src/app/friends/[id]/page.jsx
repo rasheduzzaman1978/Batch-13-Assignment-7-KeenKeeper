@@ -23,6 +23,8 @@ import { toast } from 'react-toastify';
 // Friends JSON data import
 import friends from '@/data/friends.json';
 
+import { useTimeline } from '@/context/TimelineContext';
+
 // Custom images import
 import callImg from '@/assets/call.png';
 import textImg from '@/assets/text.png';
@@ -36,6 +38,8 @@ export default function FriendDetailsPage({ params }) {
   const friend = friends.find(
     (item) => item.id === parseInt(resolvedParams.id)
   );
+
+  const { addTimelineEntry } = useTimeline();
 
   // যদি friend না পাওয়া যায় তাহলে 404 page দেখাবে
   if (!friend) {
@@ -81,19 +85,8 @@ export default function FriendDetailsPage({ params }) {
       })}`,
     };
 
-    // আগের timeline entries localStorage থেকে আনা
-    const existingEntries =
-      JSON.parse(localStorage.getItem('timelineEntries')) || [];
-
-    // নতুন entry শুরুতে add করা
-    const updatedEntries = [newEntry, ...existingEntries];
-
-    // Updated timeline localStorage এ save করা
-    localStorage.setItem(
-      'timelineEntries',
-      JSON.stringify(updatedEntries)
-    );
-
+    
+      addTimelineEntry(newEntry);
     // Toast notification show করা
     toast.success(`${type} with ${friend.name} added to timeline!`);
   };

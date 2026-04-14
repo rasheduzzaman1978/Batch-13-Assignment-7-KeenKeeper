@@ -6,6 +6,8 @@ import { Toaster } from 'react-hot-toast';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import AppProviders from '@/providers/AppProviders';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -43,16 +45,17 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-screen flex-col bg-[#f5f7f8]">
-        <Navbar />
+      
+<body className="flex min-h-screen flex-col bg-[#f5f7f8]">
+  <AppProviders>
+    <Navbar />
 
-        <main className="flex-1">
-          {children}
-        </main>
+    <main className="flex-1">{children}</main>
 
-        <ToastContainer position="top-center" autoClose={1500} />
-        <Footer />
-      </body>
+    <ToastContainer position="top-right" autoClose={3000} />
+    <Footer />
+  </AppProviders>
+</body>
     </html>
   );
 }
