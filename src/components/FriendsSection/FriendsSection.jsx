@@ -36,6 +36,7 @@ export default function FriendsSection() {
                     src={friend.picture}
                     alt={friend.name}
                     fill
+                    sizes="(max-width: 768px) 80px, 96px"
                     className="object-cover"
                   />
                 </div>
