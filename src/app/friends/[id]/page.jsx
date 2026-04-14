@@ -1,67 +1,111 @@
 'use client';
 
-import { use, useState } from 'react';
+// React use hook for params promise
+import { use } from 'react';
+
+// Next.js Image component
 import Image from 'next/image';
+
+// যদি friend না পাওয়া যায় তাহলে not found page দেখাবে
 import { notFound } from 'next/navigation';
+
+// প্রয়োজনীয় Font Awesome icons
 import {
-  FaPhoneAlt,
-  FaCommentDots,
-  FaVideo,
   FaClock,
   FaArchive,
   FaTrash,
   FaPen,
 } from 'react-icons/fa';
+
+// Toast notification এর জন্য
+import { toast } from 'react-toastify';
+
+// Friends JSON data import
 import friends from '@/data/friends.json';
 
-export default function FriendDetailsPage({ params }) {
-    const resolvedParam = use(params);
+// Custom images import
+import callImg from '@/assets/call.png';
+import textImg from '@/assets/text.png';
+import videoImg from '@/assets/video.png';
 
+export default function FriendDetailsPage({ params }) {
+  // Promise params resolve করা
+  const resolvedParams = use(params);
+
+  // URL এর id অনুযায়ী friend খুঁজে বের করা
   const friend = friends.find(
-    (item) => item.id === parseInt(resolvedParam.id)
+    (item) => item.id === parseInt(resolvedParams.id)
   );
 
-  const [timelineEntries, setTimelineEntries] = useState([]);
-  const [toastMessage, setToastMessage] = useState('');
-
+  // যদি friend না পাওয়া যায় তাহলে 404 page দেখাবে
   if (!friend) {
     notFound();
   }
 
+  // Friend status অনুযায়ী আলাদা style set করা
   const getStatusStyle = (status) => {
     switch (status) {
       case 'overdue':
         return 'bg-red-500 text-white';
+
       case 'almost due':
         return 'bg-yellow-400 text-white';
+
       case 'on-track':
         return 'bg-green-700 text-white';
+
       default:
         return 'bg-gray-300 text-black';
     }
   };
 
+  // Quick Check-In button click handle function
   const handleCheckIn = (type) => {
+    // নতুন timeline entry object
     const newEntry = {
-      date: new Date().toLocaleDateString(),
+      id: Date.now(),
+      type,
       title: `${type} with ${friend.name}`,
+
+      // Date + Time format
+      date: `${new Date()
+        .toLocaleDateString('en-GB')
+        .replace(/\//g, '-')} • ${new Date().toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      })}`,
     };
 
-    setTimelineEntries((prev) => [newEntry, ...prev]);
-    setToastMessage(`${type} entry added successfully!`);
+    // আগের timeline entries localStorage থেকে আনা
+    const existingEntries =
+      JSON.parse(localStorage.getItem('timelineEntries')) || [];
 
-    setTimeout(() => {
-      setToastMessage('');
-    }, 3000);
+    // নতুন entry শুরুতে add করা
+    const updatedEntries = [newEntry, ...existingEntries];
+
+    // Updated timeline localStorage এ save করা
+    localStorage.setItem(
+      'timelineEntries',
+      JSON.stringify(updatedEntries)
+    );
+
+    // Toast notification show করা
+    toast.success(`${type} with ${friend.name} added to timeline!`);
   };
 
   return (
     <main className="min-h-screen bg-[#f5f7f8] px-4 py-10 md:px-8 lg:px-12">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
-        {/* Left Column */}
+        
+        {/* Left Side Section */}
         <div className="space-y-4">
+
+          {/* Friend Info Card */}
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="flex flex-col items-center text-center">
+
+              {/* Friend Profile Image */}
               <div className="relative h-24 w-24 overflow-hidden rounded-full">
                 <Image
                   src={friend.picture}
@@ -72,10 +116,12 @@ export default function FriendDetailsPage({ params }) {
                 />
               </div>
 
+              {/* Friend Name */}
               <h2 className="mt-4 text-2xl font-bold text-[#1F2937]">
                 {friend.name}
               </h2>
 
+              {/* Friend Status */}
               <span
                 className={`mt-3 rounded-full px-3 py-1 text-xs font-medium capitalize ${getStatusStyle(
                   friend.status
@@ -84,6 +130,7 @@ export default function FriendDetailsPage({ params }) {
                 {friend.status}
               </span>
 
+              {/* Friend Tags */}
               <div className="mt-4 flex flex-wrap justify-center gap-2">
                 {friend.tags.map((tag) => (
                   <span
@@ -95,16 +142,19 @@ export default function FriendDetailsPage({ params }) {
                 ))}
               </div>
 
+              {/* Friend Bio */}
               <p className="mt-5 text-sm italic text-gray-500">
                 "{friend.bio}"
               </p>
 
+              {/* Friend Email */}
               <p className="mt-3 text-sm text-gray-400">
                 {friend.email}
               </p>
             </div>
           </div>
 
+          {/* Action Buttons */}
           <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#1F2937] shadow-sm transition hover:bg-gray-50">
             <FaClock />
             Snooze 2 Weeks
@@ -121,8 +171,9 @@ export default function FriendDetailsPage({ params }) {
           </button>
         </div>
 
-        {/* Right Column */}
+        {/* Right Side Section */}
         <div className="space-y-4 lg:col-span-2">
+
           {/* Stats Cards */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
@@ -138,24 +189,29 @@ export default function FriendDetailsPage({ params }) {
               <h3 className="text-2xl font-bold text-[#244D3F]">
                 {friend.goal}
               </h3>
-              <p className="mt-2 text-sm text-gray-500">Goal (Days)</p>
+              <p className="mt-2 text-sm text-gray-500">
+                Goal (Days)
+              </p>
             </div>
 
             <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
               <h3 className="text-lg font-bold text-[#244D3F]">
                 {friend.next_due_date}
               </h3>
-              <p className="mt-2 text-sm text-gray-500">Next Due Date</p>
+              <p className="mt-2 text-sm text-gray-500">
+                Next Due Date
+              </p>
             </div>
           </div>
 
-          {/* Relationship Goal */}
+          {/* Relationship Goal Card */}
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h3 className="text-lg font-semibold text-[#1F2937]">
                   Relationship Goal
                 </h3>
+
                 <p className="mt-2 text-sm text-gray-500">
                   Connect every{' '}
                   <span className="font-semibold text-[#244D3F]">
@@ -164,6 +220,7 @@ export default function FriendDetailsPage({ params }) {
                 </p>
               </div>
 
+              {/* Edit Goal Button */}
               <button className="flex items-center gap-2 rounded-md border border-gray-200 px-4 py-2 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50">
                 <FaPen className="text-xs" />
                 Edit
@@ -171,72 +228,63 @@ export default function FriendDetailsPage({ params }) {
             </div>
           </div>
 
-          {/* Quick Check-In */}
+          {/* Quick Check-In Section */}
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <h3 className="text-lg font-semibold text-[#1F2937]">
               Quick Check-In
             </h3>
 
             <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+
+              {/* Call Button */}
               <button
                 onClick={() => handleCheckIn('Call')}
                 className="flex flex-col items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
               >
-                <FaPhoneAlt />
-                Call
+                <Image
+                  src={callImg}
+                  alt="Call"
+                  width={22}
+                  height={22}
+                  className="object-contain"
+                />
+                <span>Call</span>
               </button>
 
+              {/* Text Button */}
               <button
                 onClick={() => handleCheckIn('Text')}
                 className="flex flex-col items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
               >
-                <FaCommentDots />
-                Text
+                <Image
+                  src={textImg}
+                  alt="Text"
+                  width={22}
+                  height={22}
+                  className="object-contain"
+                />
+                <span>Text</span>
               </button>
 
+              {/* Video Button */}
               <button
                 onClick={() => handleCheckIn('Video')}
                 className="flex flex-col items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50"
               >
-                <FaVideo />
-                Video
+                <Image
+                  src={videoImg}
+                  alt="Video"
+                  width={22}
+                  height={22}
+                  className="object-contain"
+                />
+                <span>Video</span>
               </button>
             </div>
           </div>
-
-          {/* Timeline Entries */}
-          {timelineEntries.length > 0 && (
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-[#1F2937]">
-                Timeline Entries
-              </h3>
-
-              <div className="mt-4 space-y-3">
-                {timelineEntries.map((entry, index) => (
-                  <div
-                    key={index}
-                    className="rounded-lg border border-gray-100 bg-gray-50 p-4"
-                  >
-                    <p className="font-medium text-[#1F2937]">
-                      {entry.title}
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      {entry.date}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
-
-      {/* Toast */}
-      {toastMessage && (
-        <div className="fixed bottom-6 right-6 rounded-lg bg-[#244D3F] px-5 py-3 text-sm font-medium text-white shadow-lg">
-          {toastMessage}
-        </div>
-      )}
     </main>
   );
 }
+
