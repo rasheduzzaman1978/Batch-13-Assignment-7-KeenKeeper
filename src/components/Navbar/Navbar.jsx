@@ -31,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full border-b border-gray-200 bg-[#f7f7f7] px-4 py-3 md:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#f7f7f7] px-4 py-3 md:px-8">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
