@@ -21,7 +21,7 @@ export default function Banner() {
   ];
 
   return (
-    <section className="bg-[#f5f7f8] px-4 py-16 md:px-8 lg:px-12">
+    <section className="bg-[#f5f7f8] px-4 py-6 md:py-12 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl text-center">
         {/* Title */}
         <h1 className="text-[28px] sm:text-4xl md:text-[45px] lg:text-5xl font-bold text-[#1F2937]">
