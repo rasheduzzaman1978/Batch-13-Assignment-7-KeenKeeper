@@ -203,7 +203,7 @@ export default function FriendDetailsPage({ params }) {
 
           {/* Relationship Goal Card */}
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-semibold text-[#1F2937]">
                   Relationship Goal
