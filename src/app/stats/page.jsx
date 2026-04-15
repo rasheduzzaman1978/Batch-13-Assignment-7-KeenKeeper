@@ -38,20 +38,20 @@ export default function StatsPage() {
   const COLORS = ['#7C3AED', '#1F5B4F', '#3CB371'];
 
   return (
-    <main className="min-h-screen bg-[#f5f7f8] px-4 py-10 md:px-8 lg:px-12">
+    <main className="min-h-[70%] bg-[#f5f7f8] px-4 py-6 md:py-12 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         {/* Page Heading */}
-        <h1 className="mb-8 text-3xl font-bold text-[#1F2937] md:text-4xl lg:text-5xl">
+        <h1 className="mb-4 md:mb-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937]">
           Friendship Analytics
         </h1>
 
         {/* Chart Card */}
         <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-6 text-base font-medium text-[#244D3F] md:text-[18px] lg:text-xl">
+          <h2 className="mb-2 md:mb-6 text-base font-medium text-[#244D3F] md:text-[18px] lg:text-xl">
             By Interaction Type
           </h2>
 
-          <div className="flex justify-center overflow-x-auto">
+          <div className="flex justify-center overflow-hidden">
             <PieChart width={400} height={320}>
               <Pie
                 data={chartData}
