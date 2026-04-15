@@ -172,9 +172,9 @@ export default function FriendDetailsPage({ params }) {
         <div className="space-y-4 lg:col-span-2">
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-3 gap-4">
             <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
-              <h3 className="text-2xl font-bold text-[#244D3F]">
+              <h3 className="text-xl md:text-2xl font-bold text-[#244D3F]">
                 {friend.days_since_contact}
               </h3>
               <p className="mt-2 text-sm text-gray-500">
@@ -231,7 +231,7 @@ export default function FriendDetailsPage({ params }) {
               Quick Check-In
             </h3>
 
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="mt-4 grid grid-cols-3 gap-4">
 
               {/* Call Button */}
               <button
