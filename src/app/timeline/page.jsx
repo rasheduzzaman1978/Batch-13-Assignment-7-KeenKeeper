@@ -74,7 +74,7 @@ export default function TimelinePage() {
           <select
             value={selectedFilter}
             onChange={(e) => setSelectedFilter(e.target.value)}
-            className="rounded-lg border border-gray-300 bg-white px-4 pr-2 py-3 min-w-[180px] text-sm font-medium text-[#1F2937] outline-none transition focus:border-[#244D3F] focus:ring-2 focus:ring-[#244D3F]/20"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-3 min-w-[180px] text-sm font-medium text-[#1F2937] outline-none transition focus:border-[#244D3F] focus:ring-2 focus:ring-[#244D3F]/20"
           >
             <option value="All">All</option>
             <option value="Call">Call</option>

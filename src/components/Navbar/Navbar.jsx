@@ -39,10 +39,11 @@ export default function Navbar() {
             <Image
               src={logoImg}
               alt="KeenKeeper Logo"
-              fill
-              sizes="(max-width: 768px) 120px, 150px"
-              className="object-contain"
-            />
+              width={150}
+              height={40}
+              priority
+              className="h-8 w-auto md:h-10"
+            />  
           </div>
         </Link>
 
