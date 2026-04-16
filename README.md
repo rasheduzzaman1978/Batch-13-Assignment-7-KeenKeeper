@@ -2,16 +2,36 @@
 
   # Description
 
-    KeenKeeper is a relationship management web application that helps users stay connected with friends, family and important people in their lives. Users can track interactions, monitor relationship status and keep up with communication goals.
+    KeenKeeper is a relationship management web application that helps users stay connected with friends, family and important people in their lives. Users can track interactions, monitor relationship status and keep up with communication goals. Search, sort, and filter timeline activities. The application is designed with a clean, modern and fully responsive user interface.
 
   # 🎯 Live Features
 
-    * Add quick check-ins such as Call, Text and Video interactions.
-    * Track relationship timelinehistory with date and time.
-    * Filter timeline entries by interaction type
-    * Monitor contact goals and overdue relationships
-    * View friend details, tags and upcoming due dates
-    * Friendship analytics page with a pie chart showing Call, Text, and Video interaction counts.
+    1. Friendship Dashboard
+
+    * View all friends in a responsive card layout
+    * See relationship status like overdue, almost due, or on-track
+    * Track last contact date and next due date
+
+    2. Friend Details Page
+
+    * View complete friend information
+    * Track days since last contact
+    * Monitor communication goals
+    * Quickly add Call, Text, or Video interactions
+    
+    3. Timeline Tracking
+
+    * Store all interactions in a timeline
+    * Display interaction date and time
+    * Filter timeline by Call, Text, or Video
+    * Search timeline by friend name or interaction type
+    * Sort timeline by newest or oldest
+    
+    4. Friendship Analytics
+    
+    * Visualize interaction history with charts
+    * See counts for Call, Text, and Video activities
+    * Responsive analytics section for all devices
   
   # ⚡ Technologies Used
 
@@ -20,6 +40,8 @@
   * Tailwind CSS
   * DaisyUI
   * React Icons
+  * Recharts
+  * React Hot Toast
   * React Toastify
   * Context API
   * Local Storage
@@ -38,18 +60,27 @@
   # 📜 Folder Structure
 
   ## src/
-    |- app/
-    |- assets/
-    |- components/
-    |- context/
-    |- data/
-    |- providers/
+    ├── app/
+    │   ├── timeline/
+    │   ├── stats/
+    │   ├── privacy-policy/
+    │   ├── cookies/
+    │   └── terms-of-service/
+    ├── assets/
+    ├── components/
+    │   ├── Navbar/
+    │   ├── Footer/
+    │   └── timeline/
+    ├── context/
+    ├── providers/
+    ├── data/
+    └── utils/
 
   # 🔴 Future Improvements
 
     * Add dark mode
-    * Add search and sorting for friends
     * Add edit and delete options for timeline entries
+    * Add notification reminders
     * Add authentication system
 
   ## Developed by Md. Rasheduzzaman
