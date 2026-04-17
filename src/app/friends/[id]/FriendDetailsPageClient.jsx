@@ -166,115 +166,158 @@ export default function FriendDetailsPageClient({ params }) {
           </button>
         </div>
 
-        {/* Right Side Section */}
-        <div className="space-y-4 lg:col-span-2">
-          {/* Stats Cards */}
-          <div className="grid grid-cols-3 gap-4">
-            <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
-              <h3 className="text-xl md:text-2xl font-bold text-[#244D3F]">
-                {friend.days_since_contact}
-              </h3>
-              <p className="mt-2 text-sm text-gray-500">
-                Days Since Contact
-              </p>
-            </div>
+       {/* Right Side Section */}
+<div className="space-y-4 lg:col-span-2">
+   {/* Stats Cards */}
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+  <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    {/* Background Glow */}
+    <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
-              <h3 className="text-2xl font-bold text-[#244D3F]">
-                {friend.goal}
-              </h3>
-              <p className="mt-2 text-sm text-gray-500">
-                Goal (Days)
-              </p>
-            </div>
+    <div className="relative">
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-2xl font-bold text-green-700 shadow-inner">
+        {friend.days_since_contact}
+      </div>
 
-            <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
-              <h3 className="text-lg font-bold text-[#244D3F]">
-                {friend.next_due_date}
-              </h3>
-              <p className="mt-2 text-sm text-gray-500">
-                Next Due Date
-              </p>
-            </div>
-          </div>
+      <p className="mt-4 text-sm font-medium text-gray-500">
+        Days Since Contact
+      </p>
+    </div>
+  </div>
 
-          {/* Relationship Goal Card */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <h3 className="text-lg font-semibold text-[#1F2937]">
-                  Relationship Goal
-                </h3>
+  <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    {/* Background Glow */}
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <p className="mt-2 text-sm text-gray-500">
-                  Connect every{' '}
-                  <span className="font-semibold text-[#244D3F]">
-                    {friend.goal} days
-                  </span>
-                </p>
-              </div>
+    <div className="relative">
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-2xl font-bold text-blue-700 shadow-inner">
+        {friend.goal}
+      </div>
 
-              {/* Edit Goal Button */}
-              <button className="flex items-center gap-2 rounded-md border border-gray-200 px-4 py-2 text-sm font-medium text-[#1F2937] transition hover:bg-gray-50">
-                <FaPen className="text-xs" />
-                Edit
-              </button>
-            </div>
-          </div>
+      <p className="mt-4 text-sm font-medium text-gray-500">
+        Goal (Days)
+      </p>
+    </div>
+  </div>
 
-          {/* Quick Check-In Section */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-[#1F2937]">
-              Quick Check-In
-            </h3>
+  <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    {/* Background Glow */}
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            <div className="mt-4 grid grid-cols-3 gap-4">
-              {/* Call Button */}
-              <button
-                onClick={() => handleCheckIn('Call')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-200"
-              >
-                <Image
-                  src={callImg}
-                  alt="Call"
-                  width={22}
-                  height={22}
-                  className="object-contain"
-                />
-                <span>Call</span>
-              </button>
+    <div className="relative">
+      <div className="mx-auto flex h-14 min-w-[56px] items-center justify-center rounded-2xl bg-purple-100 px-3 text-sm font-bold text-purple-700 shadow-inner">
+        {friend.next_due_date}
+      </div>
 
-              {/* Text Button */}
-              <button
-                onClick={() => handleCheckIn('Text')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-200"
-              >
-                <Image
-                  src={textImg}
-                  alt="Text"
-                  width={22}
-                  height={22}
-                  className="object-contain"
-                />
-                <span>Text</span>
-              </button>
+      <p className="mt-4 text-sm font-medium text-gray-500">
+        Next Due Date
+      </p>
+    </div>
+  </div>
+</div>
+{/* Relationship Goal Card */}
+<div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+  {/* Background Glow */}
+  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-              {/* Video Button */}
-              <button
-                onClick={() => handleCheckIn('Video')}
-                className="flex flex-col items-center justify-center gap-2 rounded-lg cursor-pointer border border-gray-200 px-4 py-5 text-sm font-medium text-[#1F2937] transition hover:bg-gray-200"
-              >
-                <Image
-                  src={videoImg}
-                  alt="Video"
-                  width={22}
-                  height={22}
-                  className="object-contain"
-                />
-                <span>Video</span>
-              </button>
-            </div>
-          </div>
+  <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+    {/* Left Content */}
+    <div className="flex items-start gap-4">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 shadow-inner">
+        <FaPen className="text-lg text-green-700" />
+      </div>
+
+      <div>
+        <h3 className="text-lg font-semibold text-[#1F2937]">
+          Relationship Goal
+        </h3>
+
+        <p className="mt-2 text-sm text-gray-500">
+          Connect every{' '}
+          <span className="rounded-full bg-green-100 px-3 py-1 font-semibold text-[#244D3F]">
+            {friend.goal} days
+          </span>
+        </p>
+      </div>
+    </div>
+
+    {/* Edit Button */}
+    <button className="flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#1F2937] shadow-sm transition-all duration-300 hover:border-green-200 hover:bg-green-50 hover:text-green-700 hover:shadow-md">
+      <FaPen className="text-xs" />
+      Edit Goal
+    </button>
+  </div>
+</div>
+
+         {/* Quick Check-In Section */}
+<div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+  <h3 className="text-lg font-semibold text-[#1F2937]">
+    Quick Check-In
+  </h3>
+
+  <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+    {[
+      {
+        label: 'Call',
+        image: callImg,
+        gradient: 'bg-gradient-to-br from-green-500 to-emerald-500',
+        iconBg: 'bg-green-100',
+        hoverText: 'group-hover:text-green-600',
+      },
+      {
+        label: 'Text',
+        image: textImg,
+        gradient: 'bg-gradient-to-br from-blue-500 to-cyan-500',
+        iconBg: 'bg-blue-100',
+        hoverText: 'group-hover:text-blue-600',
+      },
+      {
+        label: 'Video',
+        image: videoImg,
+        gradient: 'bg-gradient-to-br from-purple-500 to-pink-500',
+        iconBg: 'bg-purple-100',
+        hoverText: 'group-hover:text-purple-600',
+      },
+    ].map((item) => (
+      <button
+        key={item.label}
+        onClick={() => handleCheckIn(item.label)}
+        className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white px-4 py-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl"
+      >
+        {/* Hover Gradient Background */}
+        <div
+          className={`absolute inset-0 ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+        />
+
+        {/* Content */}
+<div className="relative flex flex-col items-center justify-center gap-3">
+  {/* Icon */}
+  <div
+    className={`relative flex h-14 w-14 items-center justify-center rounded-2xl ${item.iconBg} shadow-inner ring-1 ring-white/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg`}
+  >
+    {/* Soft Glow */}
+    <div className="absolute inset-0 rounded-2xl bg-white/30 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+
+    <Image
+      src={item.image}
+      alt={item.label}
+      width={24}
+      height={24}
+      className="relative z-10 object-contain transition-transform duration-300 group-hover:scale-110"
+    />
+  </div>
+
+  {/* Label */}
+  <span
+    className={`text-sm font-semibold text-gray-700 transition-colors duration-300 ${item.hoverText}`}
+  >
+    {item.label}
+  </span>
+</div>
+      </button>
+    ))}
+  </div>
+</div>
         </div>
       </div>
     </main>
