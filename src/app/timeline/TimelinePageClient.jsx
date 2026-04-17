@@ -2,6 +2,7 @@
 
 // React থেকে useEffect এবং useState hook import করা হয়েছে
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import TimelineFilterDropdown from '@/components/timeline/TimelineFilterDropdown';
 import TimelineSortDropdown from '@/components/timeline/TimelineSortDropdown';
@@ -16,6 +17,7 @@ export default function TimelinePageClient() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('Sort: Newest - Oldest');
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+  const [activeSearchTerm, setActiveSearchTerm] = useState('');
 
   useEffect(() => {
     const savedEntries =
@@ -24,14 +26,28 @@ export default function TimelinePageClient() {
     setEntries(savedEntries);
   }, []);
 
+  // Search button click handle function
+  const handleSearch = () => {
+    if (!searchTerm.trim()) {
+      toast.error('Please enter something to search');
+      return;
+  }
+
+  setActiveSearchTerm(searchTerm);
+};
+
   const filteredEntries = entries
     .filter((entry) => {
       const matchesFilter =
         selectedFilter === 'All' || entry.type === selectedFilter;
 
       const matchesSearch =
-        entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        entry.type.toLowerCase().includes(searchTerm.toLowerCase());
+        entry.title
+          .toLowerCase()
+          .includes(activeSearchTerm.toLowerCase()) ||
+        entry.type
+          .toLowerCase()
+          .includes(activeSearchTerm.toLowerCase());
 
       return matchesFilter && matchesSearch;
     })
@@ -61,6 +77,7 @@ export default function TimelinePageClient() {
           <TimelineSearchInput
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
+            onSearch={handleSearch}
           />
 
           <TimelineSortDropdown
