@@ -128,7 +128,7 @@ export default function Navbar() {
         <button
           // Click করলে menu open/close toggle হবে
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center text-3xl text-[#244D3F] min-[768px]:hidden"
+          className="flex items-center justify-center text-3xl text-[#244D3F] sm:hidden"
         >
           {/* যদি menu open থাকে তাহলে close icon দেখাবে */}
           {/* না হলে hamburger icon দেখাবে */}
@@ -139,7 +139,7 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       {/* যদি isOpen true হয় তাহলে menu show হবে */}
       {isOpen && (
-        <div className="mt-4 border-t border-gray-200 pt-4 min-[768px]:hidden">
+        <div className="mt-4 border-t border-gray-200 pt-4 sm:hidden">
           <ul className="flex flex-col gap-2">
             {/* প্রতিটি nav item mobile menu তে render করা হচ্ছে */}
             {navItems.map((item) => {
