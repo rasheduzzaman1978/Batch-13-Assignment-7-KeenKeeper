@@ -91,7 +91,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation Menu */}
         {/* 768px এর নিচে hidden থাকবে */}
-        <nav className="hidden min-[768px]:block">
+        <nav className="hidden sm:block">
           <ul className="flex items-center gap-3 text-sm md:text-base font-medium">
             {/* প্রতিটি nav item render করা হচ্ছে */}
             {navItems.map((item) => {
