@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: friend?.name || 'Friend Details',
+    title: friend?.name ? friend.name + ' - Friend Details' : 'Friend Details',
   };
 }
 
