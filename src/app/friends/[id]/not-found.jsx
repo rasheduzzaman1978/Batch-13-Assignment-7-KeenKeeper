@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Error404Image from '@/assets/error-404.png';
 
 export const metadata = {
-  title: 'Page Not Found',
+  title: 'Page Not-Found',
 };
 
 export default function NotFound() {
   return (
-    <div className="mb-4 flex min-h-[80%] flex-col items-center justify-center bg-[#f5f5f7] px-6 text-center">
+    <div className="mb-4 flex min-h-screen flex-col items-center justify-center bg-[#f5f5f7] px-6 text-center">
       <div className="relative mb-8 h-56 w-56 sm:h-64 sm:w-64 md:h-80 md:w-80">
         <Image
           src={Error404Image}
@@ -22,11 +22,11 @@ export default function NotFound() {
       </div>
 
       <h2 className="mb-2 text-3xl font-bold text-slate-900">
-        Oops, page not found!
+        Friend not found!
       </h2>
 
       <p className="mb-6 max-w-md text-sm text-slate-500">
-        The page you are looking for is not available.
+        The friend profile you are looking for does not exist.
       </p>
 
       <Link

@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'KeenKeeper',
+  title: 'Home | KeenKeeper',
   description: 'Track your friendship and interactions with KeenKeeper',
   icons: {
     icon: '/favicon.ico',
